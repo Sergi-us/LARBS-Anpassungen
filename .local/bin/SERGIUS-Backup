@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Prüfe, ob ein Quellverzeichnis als Argument übergeben wurde
+if [ $# -eq 0 ]; then
+    echo "Bitte gib das Quellverzeichnis an (z.B. SERGIUS)"
+    exit 1
+fi
+
+# Setze das Quellverzeichnis
+QUELLVERZEICHNIS=$1
+
+# Gehe durch alle Dateien im Quellverzeichnis
+find "$HOME/$QUELLVERZEICHNIS" -type f | while read -r datei; do
+    # Überprüfe, ob die Datei oder das Verzeichnis ausgeschlossen werden soll
+    if [[ $datei == *".git"* || $datei == *"README.md" || $datei == *"LICENSE" ]]; then
+        echo "Überspringe $datei"
+        continue
+    fi
+
+    # Extrahiere den relativen Pfad ab dem Quellverzeichnis
+    RELATIVER_PFAD=${datei#$HOME/$QUELLVERZEICHNIS/}
+
+    # Setze den Zielpfad zurück ins Home-Verzeichnis
+    ZIELPFAD="$HOME/$RELATIVER_PFAD"
+
+    # Überprüfe, ob das Zielverzeichnis existiert
+    if [ ! -d "$(dirname "$ZIELPFAD")" ]; then
+        echo "Warnung: Zielverzeichnis $(dirname "$ZIELPFAD") existiert nicht für $datei."
+        continue # Überspringe diese Datei
+    fi
+
+    # Kopiere die Datei zurück
+    cp "$datei" "$ZIELPFAD"
+
+    echo "Datei $datei wurde nach $ZIELPFAD kopiert."
+done
