@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # Das Script erstellt ueber eine Dmenu-Auswahl einen Screenshot. Ich habe das Script angepasst damit das Bild im gewuenschten Zielerzeichniss abgelegt wird.
 
