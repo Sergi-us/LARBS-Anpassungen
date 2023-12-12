@@ -1,8 +1,8 @@
 # LARBS-Anpassungen
-Meine Anpassungen und Scripte fuer den Bootsscrapping Buil von LARBS
+Meine Anpassungen und Scripte fuer den Bootscrapping Build von LARBS
 
-Clone das Repositorei in dein Home verzeichniss und ersetze manuel die dateien.
+Alles wichtige steht im Script selbst, ich arbeite weiter an der Automatisierung.
 
-Ich sollte mal ein Script schreiben, der das erledigt...
+Wenn du mitmachen willst, schicke mir ein Pull-Reguest 🤗
 
-bald 😃
+Sergius
