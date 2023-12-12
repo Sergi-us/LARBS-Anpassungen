@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Überprüfe, ob ein Dateiname als Argument übergeben wurde
+if [ $# -eq 0 ]; then
+    echo "Bitte gib den Namen der zu kopierenden Datei an."
+    exit 1
+fi
+
+# Setze den Dateinamen
+DATEINAME=$1
+
+# Ermittle das aktuelle Verzeichnis
+AKTUELLES_VERZEICHNIS=$(pwd)
+
+# Setze den Quellpfad
+QUELLPFAD="$AKTUELLES_VERZEICHNIS/$DATEINAME"
+
+# Extrahiere den relativen Pfad ab dem Home-Verzeichnis
+RELATIVER_PFAD=${AKTUELLES_VERZEICHNIS#*$HOME/}
+
+# Setze den Zielpfad
+ZIELPFAD="$HOME/SERGIUS/$RELATIVER_PFAD/$DATEINAME"
+
+# Erstelle die notwendigen Unterordner im Zielpfad
+mkdir -p "$(dirname "$ZIELPFAD")"
+
+# Kopiere die Datei
+cp "$QUELLPFAD" "$ZIELPFAD"
+
+echo "Datei $DATEINAME wurde nach $ZIELPFAD kopiert."
