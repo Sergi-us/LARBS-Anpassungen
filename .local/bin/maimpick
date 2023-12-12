@@ -1,6 +1,8 @@
-#!/bin/sh
+#/bin/sh
 
-#!/bin/sh
+# Das Script erstellt ueber eine Dmenu-Auswahl einen Screenshot. Ich habe das Script angepasst damit das Bild im gewuenschten Zielerzeichniss abgelegt wird.
+
+# TODO bevor du das script laufen laesst, schreibe dein Zielverzeichniss und erstelle es!
 
 # variables
 output="$(date '+%y%m%d-%H%M-%S').png"
