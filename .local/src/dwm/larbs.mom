@@ -24,9 +24,9 @@ Druecken von \f(CWs\fP wird das Dokument in der breite angepasst darstellen und 
 By \f(CWMod\fP, I mean the Super Key, usually known as "the Windows Key."
 .LIST OFF
 .PP
-FAQs are at the end of this document.
+FAQs sind am ende vom Dokument.
 .HEADING 1 "Welcome!"
-.HEADING 2 "Basic goals and principles of this system:"
+.HEADING 2 "Zielsetzung und die Philosophie des System's:"
 .LI
 .ITEM
 \fBNaturalness\fP \(en
@@ -40,11 +40,11 @@ Programs should be simple and light on system resources and highly extensible.
 Because of this, many are terminal or small ncurses programs that have all the magic inside of them.
 .ITEM
 \fBKeyboard/vim-centrality\fP \(en
-All terminal programs (and other programs) use vim keys when possible.
-Your hands never need leave the home row or thereabout.
+Alle Terminalprogramme (und andere Programme) verwenden, wenn möglich, die Vim-Tasten.
+Ihre Hände müssen nie die Startzeile oder einen anderen Bereich verlassen.
 .ITEM
-\fBDecentralization\fP \(en
-This system is a web of small, modifiable and replaceable programs that users can easily customize.
+\fBDezentralisierung\fP \(en
+Dieses System besteht aus einem Netz kleiner, veränderbarer und austauschbarer Programme, die vom Benutzer leicht angepasst werden können.
 .LIST OFF
 .HEADING 2 "General keyboard changes"
 .LI

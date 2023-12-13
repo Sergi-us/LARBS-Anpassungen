@@ -1,0 +1,4 @@
+#!bin/bash
+# ein Script um die geclonten Dateien ins Homeverzeichniss zu syncen. Ueberschreibt die bestehenden konfigurations-Dateien nach abfrage.
+#TODO Git-Versionierung fuer Home-Dir.
+#TODO Script mit **chmod +x {dateiname}** ausfuerbar machen.
