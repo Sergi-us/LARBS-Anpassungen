@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ausführbar machen mit chmod +x
+# sergi`s
+# ablegepfad .local/bin/sergi/sergi-finde-originale
+
+# Definiere das Nutzerverzeichnis und die Ausgabedatei
+nutzerverzeichnis="$HOME"
+ausgabedatei="$HOME/git-server/LARBS-Anpassungen/sergi.conf"
+zielverzeichniss="$HOME/git-server/LARBS-Anpassungen"
+ignoriere="$HOME/git-server"
+
+# Lösche die Ausgabedatei, falls sie bereits existiert
+> "$ausgabedatei"
+
+# Durchsuche das Nutzerverzeichnis
+find "$nutzerverzeichnis" -type d \( -path "$ignoriere" -prune \) -o -type f -print0 | while IFS= read -r -d '' datei; do
+    # Überprüfe jede Datei auf den Kommentar
+    if grep -q '# sergi`s' "$datei"; then
+        # Schreibe den Dateinamen mit dem Raltiven Pfad in die Ausgabedatei
+	relativer_pfad="${datei#$HOME/}"
+        echo "$relativer_pfad" >> "$ausgabedatei"
+
+	# Ergänze die gefundene Datei mit einer Kommentarzeile, falls nicht vorhanden
+        kommentar="# ablegepfad: $relativer_pfad"
+        if ! grep -q "$kommentar" "$datei"; then
+            echo "$kommentar" >> "$datei"
+	fi
+    fi
+done
+
+echo "Script beendet. Gefundene Dateien in $ausgabedatei."
+# ablegepfad: .local/bin/sergi/sergi-finde-originale

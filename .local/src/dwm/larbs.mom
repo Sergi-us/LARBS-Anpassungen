@@ -1,3 +1,4 @@
+# sergi`s
 .de LI
 .LIST
 .SHIFT_LIST 10p
@@ -360,3 +361,6 @@ You can follow links via the keyboard in this pdf reader by pressing \f(CWf\fP f
 .PDF_WWW_LINK "http://lukesmith.xyz/rss.xml" "RSS"
 \(en For updates!
 .LIST OFF
+# ablegepfad /home/sergi/.local/src/dwm/larbs.mom
+# ablegepfad .local/src/dwm/larbs.mom
+# ablegepfad: .local/src/dwm/larbs.mom

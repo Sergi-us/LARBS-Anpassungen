@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# sergi`s
+
+# Pfad zur sergi.conf
+konfigurationsdatei="$HOME/git-server/LARBS-Anpassungen/sergi.conf"
+zielverzeichnis="$HOME/git-server/LARBS-Anpassungen"
+
+# Lese jede Zeile in sergi.conf
+while IFS= read -r datei; do
+    # Vollständiger Pfad zur Originaldatei
+    originaldatei="$HOME/$datei"
+
+    # Überprüfe, ob die Datei existiert
+    if [ -f "$originaldatei" ]; then
+        # Zielverzeichnis für die Datei erstellen
+        zielordner="${zielverzeichnis}/$(dirname "$datei")"
+        mkdir -p "$zielordner"
+
+        # Synchronisiere die Datei mit dem Zielverzeichnis
+        rsync -av "$originaldatei" "${zielordner}/"
+    else
+        echo "Datei nicht gefunden: $originaldatei"
+    fi
+done < "$konfigurationsdatei"
+
+echo "Synchronisation abgeschlossen."
+# ablegepfad: .local/bin/sergi/sergi-originale-kopieren
